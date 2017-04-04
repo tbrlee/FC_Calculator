@@ -1,6 +1,7 @@
 $(function() {
 var cbtn = $(".calcbutton");
 var output = $("#digits");
+//var calRes = ";
 console.log(cbtn);
 
 //Use loop to create individual class buttons that equivalent
