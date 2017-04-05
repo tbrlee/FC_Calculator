@@ -11,7 +11,12 @@ for(var i=0; i < cbtn.length; i++) {
         var clkvalue = $(this).text();
        //output.text(clkvalue);
 
+       if(clkvalue == "=") {
+        calRes = eval(calRes); //Eval NOT recommended! but essential for this version of the project
+       }
+       else {
         calRes=calRes + clkvalue;
+       }
         output.text(calRes); 
         console.log("Clicked!");
     });
