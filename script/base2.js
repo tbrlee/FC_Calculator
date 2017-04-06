@@ -22,8 +22,8 @@ for(var i=0; i < cbtn.length; i++) {
         if (clkvalue == "+" || clkvalue == "*" || clkvalue == "/" ||clkvalue == "-") {
            if (boolopswitch) {
                 boolopswitch = false;
-                if (oplist.indexOf(output.text(clkvalue).slice(-1)) > -1) {
-                    calRes = calRes.substring(0, calRes.length-1);
+                if (oplist.indexOf(output.text().slice(-1)) > -1) { //if the last character of the calculation is operand
+                    calRes = calRes.substring(0, calRes.length-1); //replace the last operand with new operand press
                 }
                 else {
                      calRes = eval(calRes); //Immediate calculation two numbers between operator  
@@ -44,3 +44,10 @@ for(var i=0; i < cbtn.length; i++) {
        else {
         calRes=calRes + clkvalue;
        }
+
+    
+        output.text(calRes); 
+        console.log("Clicked!");
+    });
+}
+});
