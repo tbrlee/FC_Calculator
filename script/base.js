@@ -3,7 +3,8 @@ var cbtn = $(".calcbutton");
 var output = $("#digits");
 var calRes = "";
 var boolswitch = false; //Use boolean as switch mechanism for controlling 0
-var boolopswitch = false; //Use bool as switch for continous calculation for operators without = sign 
+var boolopswitch = false; //Use bool as switch for continous calculation for operators without = sign
+var oplist = ["+","-","*","/"]; 
 console.log(cbtn);
 
 //Use loop to create individual class buttons that equivalent
@@ -29,6 +30,16 @@ for(var i=0; i < cbtn.length; i++) {
        else {
         calRes=calRes + clkvalue;
        }
+
+       if( boolopswitch) { //automatically calculate numbers with operator in between of them
+           boolopswitch = false;
+           calRes = eval(calRes);
+       }
+
+       if (clkvalue == "+" || clkvalue == "*" || clkvalue == "/" ||clkvalue == "-") {
+           boolopswitch = true; //continue accepting operator 
+       }
+
         output.text(calRes); 
         console.log("Clicked!");
     });
