@@ -35,7 +35,11 @@ for(var i=0; i < cbtn.length; i++) {
 
 
        if(clkvalue == "=") {
-        calRes = eval(calRes); //Eval NOT recommended! but essential for this version of the project
+           clkvalue = ""; //Prevent = sign showing up 
+            if (oplist.indexOf(output.text().slice(-1)) == -1) {
+                 calRes = eval(calRes); //Continue finalize calculation eith = sign as there is no other operand at the end 
+            }
+       
        }
        else if (clkvalue == "C") {
         calRes = 0;
